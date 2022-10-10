@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/bukkit/0.6.6/3c37ce315c6be77f96b4a42be89feb3285f018b/bukkit-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/4.2.3/eeaf2f9eb5e56138ab8cf936dc00f86c3a569d05/jedis-4.2.3.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.json/json/20220320/6df2c050972619466f6dcef7654ef9bcc01dfd0/json-20220320.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zaxxer/HikariCP/5.0.1/a74c7f0a37046846e88d54f7cb6ea6d565c65f9c/HikariCP-5.0.1.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/8.0.30/b26dd6e4e917d3d4726c34d09d2fd67df7c1dd37/mysql-connector-java-8.0.30.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mongodb/mongo-java-driver/3.12.11/b7f1072d9b1d81148b80226db28ffff8cbb54c20/mongo-java-driver-3.12.11.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_16_R3/0.6.6/bd9deb52b2ca6a5bb7ae7fe5aa5dea3100885ffb/v1_16_R3-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/api/0.6.6/24002157c15e951168e8bf5aa7f112ffdc6ab3fc/api-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_8_R3/0.6.6/172096a15a345e60180b7ca8e5c752cb94a78047/v1_8_R3-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_9_R1/0.6.6/afb01d6320ce339fb1efa3f036cc96b51a93b3bd/v1_9_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_9_R2/0.6.6/56a4c118f8dbe707d26ed5adc0c11431aeb3e947/v1_9_R2-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_10_R1/0.6.6/a339217791ba3c788a88dc78724baef74dfeea3/v1_10_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_11_R1/0.6.6/3c8889fc8ba4a1f446bc2b445126c9bf5fe83f8f/v1_11_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_12_R1/0.6.6/9aa3a695a870000f9ff3f301afa25e51688262f1/v1_12_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_13_R1/0.6.6/ffabd4446a015f25ea8ce9ff962f536a319ebec4/v1_13_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_13_R2/0.6.6/c99796b97d745904327c55d7d362ee4375acd6e5/v1_13_R2-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_14_R1/0.6.6/2ffdfcfaf7148f3729e46fc4327debeff15030bc/v1_14_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_15_R1/0.6.6/df4bd413736c37a1e21f0612961206017b3d442b/v1_15_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_16_R1/0.6.6/fb557398e81859eaa1514f89fb7253efe1df8ad4/v1_16_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_16_R2/0.6.6/61cdabb71ff5425e4cdee7c94a03f7ac21e7a64b/v1_16_R2-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_17_R1/0.6.6/8c5ada433d214655c6b0de3386399f4bbfa36694/v1_17_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_18_R1/0.6.6/476bc850c8def8630913a3ba5567356553992da9/v1_18_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_18_R2/0.6.6/96b684db563ae4fb5e0d0f37d0f497ff33f20009/v1_18_R2-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_19_R1/0.6.6/8fa5cbc51f1f3e5456c777b4bebd7a6aa9aaf591/v1_19_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/v1_19_1_R1/0.6.6/259de0de0b80af9efbd7fce8f2e7eb9f214ce29/v1_19_1_R1-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/proxy-client/0.6.6/377685c3153ee4a244ad67bc15b4dbe810cce5a8/proxy-client-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hakan-krgn.hCore/proxy-server/0.6.6/ab0291af93d8fa1c887f8709206e055b6418867/proxy-server-0.6.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.32/cdcff33940d9f2de763bc41ea05a0be5941176c3/slf4j-api-1.7.32.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.11.1/8970fd110c965f285ed4c6e40be7630c62db6f68/commons-pool2-2.11.1.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.9/8a432c1d6825781e21a02db2e2c33c5fde2833b9/gson-2.8.9.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.19.4/748e4e0b9e4fa6b9b1fe65690aa04a9db56cfc4d/protobuf-java-3.19.4.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.w3c/dom/2.3.0-jaxb-1.0.6/fbe7e88b94614968f2cfb1c62663933dcaf77a88/dom-2.3.0-jaxb-1.0.6.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/25ea2e8b0c338a877313bd4672d3fe056ea78f0d/jsr305-3.0.2.jar" />
+        </processorPath>
+        <module name="devroom.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="17" />
+  </component>
+</project>
