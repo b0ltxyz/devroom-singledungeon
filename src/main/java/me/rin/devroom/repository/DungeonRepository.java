@@ -1,8 +1,6 @@
-package me.rin.devroom.data.repository;
-
+package me.rin.devroom.repository;
 
 import me.rin.devroom.stats.DungeonUserStatistics;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -39,5 +37,4 @@ public class DungeonRepository extends Repository {
     public List<DungeonUserStatistics> findAll() {
         return super.session.createQuery("SELECT a FROM Users a", DungeonUserStatistics.class).getResultList();
     }
-
 }

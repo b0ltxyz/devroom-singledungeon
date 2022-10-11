@@ -1,46 +1,38 @@
 package me.rin.devroom.user;
 
-import me.rin.devroom.SingleDungeonPlugin;
-import me.rin.devroom.data.backup.DungeonUserBackup;
 import me.rin.devroom.session.DungeonSession;
 import me.rin.devroom.stats.DungeonUserStatistics;
-import org.bukkit.entity.Player;
-
 
 import java.util.UUID;
 
+import static me.rin.devroom.SingleDungeonPlugin.REPOSITORY;
+
 public class DungeonUser {
 
-    private UUID uid;
+    private final UUID uid;
     private DungeonSession activeSession;
     private DungeonUserStatistics statistics;
 
-
     public DungeonUser(UUID uid) {
         this.uid = uid;
-        DungeonUserManager.dungeonUsers.put(uid, this);
-        this.statistics = SingleDungeonPlugin.getInstance().getDungeonRepository().findByUID(uid).orElseGet(() -> new DungeonUserStatistics(uid));
+        this.statistics = REPOSITORY.findByUID(uid)
+                .orElseGet(() -> new DungeonUserStatistics(uid));
     }
 
+    public UUID getUID() {
+        return this.uid;
+    }
 
     public DungeonSession getActiveSession() {
         return this.activeSession;
     }
 
+    public DungeonUserStatistics getStatistics() {
+        return this.statistics;
+    }
+
     public void setActiveSession(DungeonSession activeSession) {
         this.activeSession = activeSession;
-    }
-
-    public UUID getUid() {
-        return uid;
-    }
-
-    public void setUid(UUID uid) {
-        this.uid = uid;
-    }
-
-    public DungeonUserStatistics getStatistics() {
-        return statistics;
     }
 
     public void setStatistics(DungeonUserStatistics statistics) {

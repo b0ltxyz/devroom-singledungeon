@@ -1,11 +1,15 @@
-package me.rin.devroom.data.repository;
+package me.rin.devroom.repository;
 
-
-import me.rin.devroom.SingleDungeonPlugin;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static me.rin.devroom.SingleDungeonPlugin.CONFIG;
 
 public abstract class Repository {
 
@@ -19,12 +23,14 @@ public abstract class Repository {
     private Map<String, String> properties;
     private List<Class<?>> annotatedClasses;
 
-
     public Repository(String database) {
-        this(SingleDungeonPlugin.config.mysqlHost,
-                SingleDungeonPlugin.config.mysqlPort,
-                SingleDungeonPlugin.config.mysqlUsername,
-                SingleDungeonPlugin.config.mysqlPassword, database);
+        this(
+                CONFIG.mysqlHost,
+                CONFIG.mysqlPort,
+                CONFIG.mysqlUsername,
+                CONFIG.mysqlPassword,
+                database
+        );
     }
 
     public Repository(String host,

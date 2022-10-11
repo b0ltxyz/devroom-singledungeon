@@ -12,14 +12,15 @@ import org.bukkit.entity.Player;
         description = "Teleports you to a dungeon",
         usage = "/start"
 )
-public class StartCommand{
+public class StartCommand {
+
     @SubCommand(
             permission = "dungeon.start"
     )
     public void mainCommand(CommandSender sender, String[] args) {
         Player player = (Player) sender;
         if (!DungeonUserManager.isUserInActiveSession(player.getUniqueId())) {
-            DungeonSessionManager.startSession(player, DungeonUserManager.getByUid(player.getUniqueId()));
+            DungeonSessionManager.startSession(player, DungeonUserManager.getByUID(player.getUniqueId()));
         }
     }
 }

@@ -1,11 +1,13 @@
-package me.rin.devroom.data.backup;
+package me.rin.devroom.backup;
 
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 public class DungeonUserInventoryBackup {
-    private ItemStack[] inventoryContents;
-    private ItemStack[] armorContents;
+
+    private final ItemStack[] inventoryContents;
+    private final ItemStack[] armorContents;
+
     public DungeonUserInventoryBackup(PlayerInventory inventory) {
         this.inventoryContents = inventory.getContents();
         this.armorContents = inventory.getArmorContents();

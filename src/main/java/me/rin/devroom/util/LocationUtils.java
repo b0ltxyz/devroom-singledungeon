@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 
 public class LocationUtils {
+
     public static String serialize(Location location) {
         String world = location.getWorld().getName();
         int x = location.getBlockX();

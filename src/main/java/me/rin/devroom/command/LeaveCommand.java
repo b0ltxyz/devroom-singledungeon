@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
         usage = "/leave"
 )
 public class LeaveCommand {
+
     @SubCommand(
             permission = "dungeon.leave"
     )

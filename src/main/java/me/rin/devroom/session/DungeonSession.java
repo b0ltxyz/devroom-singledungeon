@@ -1,47 +1,33 @@
 package me.rin.devroom.session;
 
-
-import me.rin.devroom.data.backup.DungeonUserBackup;
+import me.rin.devroom.backup.DungeonUserBackup;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Zombie;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DungeonSession {
-    private Player player;
-    private DungeonUserBackup userBackup;
-    private List<Zombie> sessionZombieList = new ArrayList<>();
 
+    private final Player player;
+    private final DungeonUserBackup userBackup;
+    private final List<Zombie> sessionZombieList;
 
     public DungeonSession(Player player) {
         this.player = player;
         this.userBackup = new DungeonUserBackup(player);
+        this.sessionZombieList = new ArrayList<>();
     }
-
-
-
-
-
-
 
     public Player getPlayer() {
         return this.player;
-    }
-
-
-    public List<Zombie> getSessionZombieList() {
-        return sessionZombieList;
-    }
-
-    public void setSessionZombieList(List<Zombie> sessionZombieList) {
-        this.sessionZombieList = sessionZombieList;
     }
 
     public DungeonUserBackup getUserBackup() {
         return this.userBackup;
     }
 
-
+    public List<Zombie> getSessionZombieList() {
+        return this.sessionZombieList;
+    }
 }

@@ -1,7 +1,6 @@
 package me.rin.devroom.session;
 
 import com.hakan.core.HCore;
-import me.rin.devroom.SingleDungeonPlugin;
 import me.rin.devroom.user.DungeonUser;
 import me.rin.devroom.user.DungeonUserManager;
 import me.rin.devroom.util.LocationUtils;
@@ -20,61 +19,77 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+import static me.rin.devroom.SingleDungeonPlugin.CONFIG;
+import static me.rin.devroom.SingleDungeonPlugin.REPOSITORY;
 
 public class DungeonSessionManager {
+
     public static ItemStack[] kitArmor = {new ItemStack(Material.LEATHER_BOOTS, 1), new ItemStack(Material.LEATHER_LEGGINGS, 1), new ItemStack(Material.LEATHER_CHESTPLATE, 1), new ItemStack(Material.LEATHER_HELMET, 1)};
     public static List<Integer> zombieList = new ArrayList<>();
+
     public static void startSession(Player player, DungeonUser user) {
-        Location loc = LocationUtils.deserialize(SingleDungeonPlugin.config.dungeonLocation);
+        Location loc = LocationUtils.deserialize(CONFIG.dungeonLocation);
         DungeonSession session = new DungeonSession(player);
+
         player.sendMessage("Dungeon will start in 5 seconds.");
+
         HCore.syncScheduler().after(5, TimeUnit.SECONDS).run(() -> {
             player.sendMessage("Dungeon is starting...");
+
             user.setActiveSession(session);
+
             player.getInventory().clear();
             player.teleport(loc);
             player.getInventory().setArmorContents(kitArmor);
             player.getInventory().addItem(new ItemStack(Material.IRON_SWORD, 1));
             player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 5));
-            zombieList
-                    .forEach(id -> HCore.sendPacket(player, new PacketPlayOutEntityDestroy(id)));
 
-            SingleDungeonPlugin.config.mobSpawnLocations
+            zombieList.forEach(id -> HCore.sendPacket(player, new PacketPlayOutEntityDestroy(id)));
+
+            CONFIG.mobSpawnLocations
                     .forEach(id -> {
-                        Zombie z = (Zombie) LocationUtils.deserialize(id).getWorld().spawnEntity(LocationUtils.deserialize(id), EntityType.ZOMBIE);
+                        Zombie z = (Zombie) LocationUtils.deserialize(id).getWorld()
+                                .spawnEntity(LocationUtils.deserialize(id), EntityType.ZOMBIE);
                         z.setTarget(player);
+
                         zombieList.add(z.getEntityId());
                         session.getSessionZombieList().add(z);
                     });
 
-            for (UUID uid : DungeonUserManager.dungeonUsers.keySet()) {
-                if (!uid.equals(player.getUniqueId()) && DungeonUserManager.isUserInActiveSession(uid)) {
-                    Player dPlayer = Bukkit.getPlayer(uid);
-                    dPlayer.hidePlayer(SingleDungeonPlugin.getInstance(), player);
-                    player.hidePlayer(SingleDungeonPlugin.getInstance(), dPlayer);
+            for (UUID uid : DungeonUserManager.getContent().keySet()) {
+                Player dPlayer = Bukkit.getPlayer(uid);
+
+                if (dPlayer != null && !dPlayer.equals(player) && DungeonUserManager.isUserInActiveSession(uid)) {
+                    dPlayer.hidePlayer(player);
+                    player.hidePlayer(dPlayer);
+
                     session.getSessionZombieList()
-                            .forEach(zomb -> HCore.sendPacket(dPlayer, new PacketPlayOutEntityDestroy(zomb.getEntityId())));
+                            .forEach(zombie -> HCore.sendPacket(dPlayer, new PacketPlayOutEntityDestroy(zombie.getEntityId())));
                 }
             }
         });
     }
 
     public static void endSession(Player player) {
-        for (UUID uid : DungeonUserManager.dungeonUsers.keySet()) {
+        for (UUID uid : DungeonUserManager.getContent().keySet()) {
             Player dPlayer = Bukkit.getPlayer(uid);
-            if (dPlayer != player && DungeonUserManager.dungeonUsers.get(uid).getActiveSession() != null) {
-                dPlayer.showPlayer(SingleDungeonPlugin.getInstance(), player);
-                player.showPlayer(SingleDungeonPlugin.getInstance(), dPlayer);
+            if (dPlayer != null && dPlayer != player && DungeonUserManager.isUserInActiveSession(uid)) {
+                dPlayer.showPlayer(player);
+                player.showPlayer(dPlayer);
             }
         }
-        DungeonUser user = DungeonUserManager.getByUid(player.getUniqueId());
+
+        DungeonUser user = DungeonUserManager.getByUID(player.getUniqueId());
         DungeonSession session = user.getActiveSession();
         session.getUserBackup().load();
         session.getSessionZombieList()
                 .forEach(Entity::remove);
-        player.sendMessage("Dungeon finished.");
-        user.getStatistics().setSessionCount(user.getStatistics().getSessionCount()+1);
-        SingleDungeonPlugin.getInstance().getDungeonRepository().save(user.getStatistics());
+
+        user.getStatistics().setSessionCount(user.getStatistics().getSessionCount() + 1);
         user.setActiveSession(null);
+
+        REPOSITORY.save(user.getStatistics());
+
+        player.sendMessage("Dungeon finished.");
     }
 }

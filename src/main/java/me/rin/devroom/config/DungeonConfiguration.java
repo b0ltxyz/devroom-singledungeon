@@ -6,9 +6,7 @@ import com.hakan.core.configuration.annotations.ConfigValue;
 import com.hakan.core.configuration.containers.yaml.YamlConfigContainer;
 import me.rin.devroom.SingleDungeonPlugin;
 
-import java.util.Arrays;
 import java.util.List;
-
 
 @ConfigFile(
         plugin = SingleDungeonPlugin.class,
@@ -22,7 +20,7 @@ public class DungeonConfiguration extends YamlConfigContainer {
     public String dungeonLocation = "world:150:100:50";
 
     @ConfigValue(path = "mob-spawn-locations")
-    public List<String> mobSpawnLocations = Arrays.asList("world:150:100:50");
+    public List<String> mobSpawnLocations = List.of("world:150:100:50");
 
     @ConfigValue(path = "mysql.host")
     public String mysqlHost = "127.0.0.1";
@@ -35,6 +33,4 @@ public class DungeonConfiguration extends YamlConfigContainer {
 
     @ConfigValue(path = "mysql.password")
     public String mysqlPassword = "devroom";
-
-
 }

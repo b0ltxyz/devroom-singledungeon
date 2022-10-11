@@ -13,26 +13,15 @@ import org.bukkit.entity.Player;
         description = "Opens a gui with your dungeon stats.",
         usage = "/stats"
 )
-public class StatsCommand{
+public class StatsCommand {
+
     @SubCommand(
             permission = "dungeon.stats"
     )
     public void mainCommand(CommandSender sender, String[] args) {
         Player player = (Player) sender;
-       DungeonUserStatistics statistics = DungeonUserManager.getByUid(player.getUniqueId()).getStatistics();
-       player.sendMessage(String.valueOf(statistics.getSessionCount()) + " session " + String.valueOf(statistics.getDeathCount()) + " death " + String.valueOf(statistics.getKillCount()) + " kill " + String.valueOf((float) statistics.getKillCount()/ (float) statistics.getSessionCount()) + " avg kill per session");
-       new StatisticsGUI(player, statistics).open();
-
-
-
-
+        DungeonUserStatistics statistics = DungeonUserManager.getByUID(player.getUniqueId()).getStatistics();
+        player.sendMessage(statistics.getSessionCount() + " session " + statistics.getDeathCount() + " death " + statistics.getKillCount() + " kill " + (float) statistics.getKillCount() / (float) statistics.getSessionCount() + " avg kill per session");
+        new StatisticsGUI(player, statistics).open();
     }
-
-
-
-
-
-
-
-
 }

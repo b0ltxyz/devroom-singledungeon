@@ -3,17 +3,33 @@ package me.rin.devroom.user;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class DungeonUserManager {
-    public static HashMap<UUID, DungeonUser> dungeonUsers = new HashMap<>();
+
+    private static final Map<UUID, DungeonUser> dungeonUsers = new HashMap<>();
+
+    public static Map<UUID, DungeonUser> getContent() {
+        return dungeonUsers;
+    }
 
     public static boolean isUserInActiveSession(UUID uuid) {
-        return  dungeonUsers.get(uuid).getActiveSession() != null;
+        return getByUID(uuid).getActiveSession() != null;
     }
-    public static DungeonUser getByUid(UUID uid) {
+
+    public static DungeonUser getByUID(UUID uid) {
         return dungeonUsers.get(uid);
     }
 
+    public static DungeonUser create(Player player) {
+        return DungeonUserManager.create(player.getUniqueId());
+    }
 
+    public static DungeonUser create(UUID uid) {
+        DungeonUser user = new DungeonUser(uid);
+        DungeonUserManager.dungeonUsers.put(uid, user);
+
+        return user;
+    }
 }
