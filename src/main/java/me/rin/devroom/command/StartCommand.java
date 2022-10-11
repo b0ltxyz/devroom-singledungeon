@@ -19,7 +19,7 @@ public class StartCommand{
     public void mainCommand(CommandSender sender, String[] args) {
         Player player = (Player) sender;
         if (!DungeonUserManager.isUserInActiveSession(player.getUniqueId())) {
-            DungeonSessionManager.startSession(player);
+            DungeonSessionManager.startSession(player, DungeonUserManager.getByUid(player.getUniqueId()));
         }
     }
 }
