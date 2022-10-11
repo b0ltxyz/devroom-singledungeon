@@ -21,7 +21,6 @@ public class StatsCommand {
     public void mainCommand(CommandSender sender, String[] args) {
         Player player = (Player) sender;
         DungeonUserStatistics statistics = DungeonUserManager.getByUID(player.getUniqueId()).getStatistics();
-        player.sendMessage(statistics.getSessionCount() + " session " + statistics.getDeathCount() + " death " + statistics.getKillCount() + " kill " + (float) statistics.getKillCount() / (float) statistics.getSessionCount() + " avg kill per session");
         new StatisticsGUI(player, statistics).open();
     }
 }

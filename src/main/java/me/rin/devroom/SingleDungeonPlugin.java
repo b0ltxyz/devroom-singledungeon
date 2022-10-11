@@ -1,6 +1,8 @@
 package me.rin.devroom;
 
 import com.hakan.core.HCore;
+import com.hakan.core.dependency.annotations.Dependency;
+import com.hakan.core.dependency.annotations.DependencyList;
 import com.hakan.core.plugin.Plugin;
 import me.rin.devroom.command.LeaveCommand;
 import me.rin.devroom.command.StartCommand;
@@ -16,6 +18,14 @@ import org.bukkit.plugin.java.JavaPlugin;
         version = "0.0.1",
         apiVersion = "1.18"
 )
+@DependencyList({
+        @Dependency(
+                groupId = "org.hibernate",
+                artifactId = "hibernate-core",
+                version = "5.6.12.Final",
+                savePath = "plugins/SingleDungeon/libs"
+        )
+})
 public class SingleDungeonPlugin extends JavaPlugin {
 
     public static DungeonConfiguration CONFIG;
@@ -24,6 +34,7 @@ public class SingleDungeonPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         HCore.initialize(this);
+        HCore.loadDependencies(this);
 
         HCore.registerCommands(
                 new StartCommand(),
@@ -32,7 +43,7 @@ public class SingleDungeonPlugin extends JavaPlugin {
         );
         DungeonListeners.initialize();
 
-        REPOSITORY = new DungeonRepository();
         CONFIG = HCore.loadConfig(new DungeonConfiguration());
+        REPOSITORY = new DungeonRepository();
     }
 }
